@@ -49,10 +49,19 @@ def get_pubmed_results():
     for pmid in pmids:
         doc = docs.get(pmid, {})
         title = doc.get("title", "")
-        journal = doc.get("fulljournalname", "")
-        pubdate = doc.get("pubdate", "")
         authors = ", ".join(a["name"] for a in doc.get("authors", []) if "name" in a)
-        results.append([pmid, title, journal, pubdate, authors])
+        citation = ""
+        first_author = doc.get("sortfirstauthor", "")
+        journal_abbrev = doc.get("source", "")
+        todaydate = datetime.today()
+        formatted_date = todaydate.strftime("%Y/%m/%d")
+        formatted_year = todaydate.strftime("%Y")
+        year = formatted_year
+        pubdate = formatted_date
+        journal = doc.get("fulljournalname", "")
+        affiliation = ""
+        doi = ""
+        results.append([pmid, title, authors, citation, first_author, journal_abbrev, year, pubdate, journal, affiliation, doi])
 
     return results
 
