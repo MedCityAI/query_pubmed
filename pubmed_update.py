@@ -14,8 +14,10 @@ def get_pubmed_results():
     date_query = f'("{start_str}"[PDAT] : "{end_str}"[PDAT])'
 
     aff_queries = [
-        '"Rochester MN"[Affiliation:~5]',
-        '"Rochester Minnesota"[Affiliation:~5]'
+        '"Rochester, MN"',
+        '"Rochester, Minnesota"',
+        '"Rochester, Min"',
+        '"Rochester, Minn",
     ]
     aff_query = "(" + " OR ".join(aff_queries) + ")"
     full_query = f"{date_query} AND {aff_query}"
