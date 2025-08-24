@@ -8,7 +8,7 @@ CSV_FILE = "pubmed_results.csv"
 
 def get_pubmed_results():
     end_date = datetime.utcnow()
-    start_date = end_date - timedelta(days=1)
+    start_date = end_date - timedelta(days=3)
     start_str = start_date.strftime("%Y/%m/%d")
     end_str = end_date.strftime("%Y/%m/%d")
     date_query = f'("{start_str}"[PDAT] : "{end_str}"[PDAT])'
