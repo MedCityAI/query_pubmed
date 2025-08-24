@@ -13,13 +13,7 @@ def get_pubmed_results():
     end_str = end_date.strftime("%Y/%m/%d")
     date_query = f'("{start_str}"[PDAT] : "{end_str}"[PDAT])'
 
-    aff_queries = [
-        '"Rochester, MN"',
-        '"Rochester, Minnesota"',
-        '"Rochester, Min"',
-        '"Rochester, Minn"',
-    ]
-    aff_query = "(" + " OR ".join(aff_queries) + ")"
+    aff_query = "'Rochester, MN' OR 'Rochester, Minnesota' OR 'Rochester, Min' OR 'Rochester, Minn'"
     full_query = f"{date_query} AND {aff_query}"
 
     params = {
