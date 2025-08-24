@@ -17,7 +17,7 @@ def get_pubmed_results():
         '"Rochester, MN"',
         '"Rochester, Minnesota"',
         '"Rochester, Min"',
-        '"Rochester, Minn",
+        '"Rochester, Minn"',
     ]
     aff_query = "(" + " OR ".join(aff_queries) + ")"
     full_query = f"{date_query} AND {aff_query}"
