@@ -75,7 +75,7 @@ def save_to_csv(results):
     with open(CSV_FILE, "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         if not existing:
-            writer.writerow(["PMID", "Title", "Journal", "PubDate", "Authors"])
+            writer.writerow(["pmid", "title", "authors", "citation", "first_author", "journal_abbrev", "year", "pubdate", "journal", "affiliation", "doi"])
         for row in results:
             if row[0] not in existing:
                 writer.writerow(row)
